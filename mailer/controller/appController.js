@@ -1,5 +1,7 @@
 const nodemailer = require('nodemailer');
+const { EMAIL, PASSWORD } = require('../env.js')
 
+/**send mail from testing account */
 const signup = async (req, res) => {
     
 
@@ -21,12 +23,17 @@ const signup = async (req, res) => {
         from: '"Maddison Foo Koch 👻" <maddison53@ethereal.email>', // sender address
         to: "bar@example.com, baz@example.com", // list of receivers
         subject: "Hello ✔", // Subject line
-        text: "Hello world?", // plain text body
-        html: "<b>Hello world?</b>", // html body
+        text: "Successfully Register with us.", // plain text body
+        html: "<b>Successfully Register with us.</b>", // html body
       }
 
-    transporter.sendMail( message ).then(() => {
-        return res.status(201).json({ msg: "you should receive an email"})
+    transporter.sendMail( message ).then((info) => {
+        return res.status(201)
+        .json({ 
+          msg: "you should receive an email",
+          info : info.messageId,
+          preview: nodemailer.getTestMessageUrl(info)
+        })
     }).catch(error => {
         return res.status(500).json({ error })
     })
@@ -34,7 +41,20 @@ const signup = async (req, res) => {
    // res.status(201).json("Signup Successfully...!");
 }
 
+/**send mail from real gmail account */
 const getbill = (req,res) => {
+
+  let config = {
+    service : 'gmail',
+    auth : {
+      user: EMAIL,
+      pass: PASSWORD
+    }
+  }
+
+  let transporter = nodemailer.createTransport(config)
+
+
     res.status(201).json("getBill Successfully...!");
 }
 
