@@ -81,6 +81,10 @@ const getbill = (req,res) => {
     return res.status(201).json({
       msg: "you should recieve an email"
     })
+  }).catch(error => {
+    return res.status(500).json({
+      error
+    })
   })
 
     res.status(201).json("getBill Successfully...!");
