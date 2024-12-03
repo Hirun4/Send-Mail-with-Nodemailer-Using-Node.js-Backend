@@ -43,7 +43,7 @@ const getbill = (req,res) => {
   let MailGenerator = new Mailgen({
     theme: "default",
     product: {
-      name: "Mailgen",
+      name: "Hirun",
       link: 'https://mailgen.js/'
     }
   })
