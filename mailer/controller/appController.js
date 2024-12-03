@@ -87,7 +87,7 @@ const getbill = (req,res) => {
     })
   })
 
-    res.status(201).json("getBill Successfully...!");
+    // res.status(201).json("getBill Successfully...!");
 }
 
 
