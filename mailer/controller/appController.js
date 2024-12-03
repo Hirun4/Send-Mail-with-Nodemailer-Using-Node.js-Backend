@@ -14,8 +14,8 @@ const signup = async (req, res) => {
         port: 587,
         secure: false, // true for port 465, false for other ports
         auth: {
-          user: testAccount.user,
-          pass: testAccount.pass,
+          user: testAccount.user, //generated ethereal user
+          pass: testAccount.pass, //generated ethereal password
         },
       });
 
