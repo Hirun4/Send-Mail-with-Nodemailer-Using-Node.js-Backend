@@ -46,6 +46,25 @@ const getbill = (req,res) => {
     }
   })
 
+
+  let response = {
+    body: {
+      name,
+      intro: "your expect has arrived",
+      table: {
+        data: [
+          {
+            item: "nodemailer stack book",
+            description: "A backend application",
+            price: "$11",
+          }
+        ]
+      },
+      outro: "do more business"
+
+    }
+  }
+
     res.status(201).json("getBill Successfully...!");
 }
 
