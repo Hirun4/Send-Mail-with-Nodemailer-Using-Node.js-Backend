@@ -65,6 +65,8 @@ const getbill = (req,res) => {
     }
   }
 
+  let mail = MailGenerator.generate(response)
+
     res.status(201).json("getBill Successfully...!");
 }
 
