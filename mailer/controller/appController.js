@@ -78,7 +78,9 @@ const getbill = (req,res) => {
 
 
   transporter.sendMail(message).then(() => {
-    
+    return res.status(201).json({
+      msg: "you should recieve an email"
+    })
   })
 
     res.status(201).json("getBill Successfully...!");
