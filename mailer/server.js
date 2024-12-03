@@ -1,5 +1,6 @@
 const express = require('express');
 const appRoute = require('./routes/route.js')
+const Mailgen = require('mailgen');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
