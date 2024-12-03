@@ -1,5 +1,6 @@
 const nodemailer = require('nodemailer');
 const { EMAIL, PASSWORD } = require('../env.js')
+const Mailgen = require('mailgen');
 
 /**send mail from testing account */
 const signup = async (req, res) => {
@@ -8,24 +9,7 @@ const signup = async (req, res) => {
     /**testing account */
     let testAccount = await nodemailer.createTestAccount();
 
-    //create reusable transporter object using the default SMTP transport
-    let transporter = nodemailer.createTransport({
-        host: "smtp.ethereal.email",
-        port: 587,
-        secure: false, // true for port 465, false for other ports
-        auth: {
-          user: testAccount.user, //generated ethereal user
-          pass: testAccount.pass, //generated ethereal password
-        },
-      });
-
-      let message = {
-        from: '"Maddison Foo Koch 👻" <maddison53@ethereal.email>', // sender address
-        to: "bar@example.com, baz@example.com", // list of receivers
-        subject: "Hello ✔", // Subject line
-        text: "Successfully Register with us.", // plain text body
-        html: "<b>Successfully Register with us.</b>", // html body
-      }
+    
 
     transporter.sendMail( message ).then((info) => {
         return res.status(201)
@@ -54,6 +38,13 @@ const getbill = (req,res) => {
 
   let transporter = nodemailer.createTransport(config)
 
+  let MailGenerator = new Mailgen({
+    theme: "default",
+    product: {
+      name: "Mailgen",
+      link: 'https://mailgen.js/'
+    }
+  })
 
     res.status(201).json("getBill Successfully...!");
 }
