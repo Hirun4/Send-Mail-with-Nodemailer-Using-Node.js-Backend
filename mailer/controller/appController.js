@@ -51,7 +51,7 @@ const getbill = (req,res) => {
 
   let response = {
     body: {
-      name,
+      name: "Hirun Mhisara",
       intro: "your expect has arrived",
       table: {
         data: [
