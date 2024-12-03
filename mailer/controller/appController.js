@@ -28,6 +28,8 @@ const signup = async (req, res) => {
 /**send mail from real gmail account */
 const getbill = (req,res) => {
 
+  const {userEmail} = req.body;
+
   let config = {
     service : 'gmail',
     auth : {
@@ -66,6 +68,18 @@ const getbill = (req,res) => {
   }
 
   let mail = MailGenerator.generate(response)
+
+  let message = {
+    from: EMAIL,
+    to: userEmail,
+    subject: "place order",
+    html: mail
+  }
+
+
+  transporter.sendMail(message).then(() => {
+    
+  })
 
     res.status(201).json("getBill Successfully...!");
 }
