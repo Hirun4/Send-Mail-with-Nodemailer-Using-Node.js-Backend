@@ -44,7 +44,7 @@ const getbill = (req,res) => {
     theme: "default",
     product: {
       name: "Hirun",
-      link: 'https://mailgen.js/'
+      link: 'https://hirun4.github.io/Hirun-My-Portfolio/'
     }
   })
 
